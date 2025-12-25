@@ -333,50 +333,52 @@ Set the semver number from 'v0.2.1' to 'v0.2.2'. Ensure this value is applied th
 
 At this stage, 'splash01_start' is currently displayed in the terminal.
 
-When the user provides a URL (whether it's valid or not) and taps the ENTER key, the 'web2md.py' script passes the URL value to the 'algo4download.py' script and waits for a response.
-
-The result of running the 'algo4download.py' script is the 'download.md' file.
-
-If the user provided an invalid URL, the terminal is cleared of any text and the 'screen02_error' is displayed:
+When the user provides a URL and taps the ENTER key, the terminal is cleared of any text and the following 'splash02_download' is displayed:
 
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
-┃  The provided URL is broken. Follow the included instructions below.     ┃
-┃                                                                          ┃
-┃  To close this utility, you can type 'X then ENTER' or 'CTRL + C'.       ┃
-┃                                                                          ┃
-┠──────────────────────────────────────────────────────────────────────────┨
-┃                                                                          ┃
-┃            Copy the URL from the address bar of your browser,            ┃
-┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
-┃                         then tap the ENTER key.                          ┃
+┃             Downloading the webpage from the provided URL...             ┃
 ┃                                                                          ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
 
-If the user provided a valid URL and tapped the ENTER key, the screen is cleared of any text, the processing data is streamed to the terminal until it ends, the screen is AGAIN cleared of any text, and the following 'screen03_result' is displayed:
+The provided URL is passed to the 'algo4download.py' script and the 'web2md.py' script waits for a response.
+
+If the 'web2md.py' script receives an error message from the 'algo4download.py' script, the terminal is cleared of any text and the following 'splash03_download_error' is displayed:
+
+
 
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
-┃                                  SUCCESS                                 ┃
-┃                                                                          ┃
-┃     The webpage has been saved to a markdown file called 'output.md'.    ┃
-┃                                                                          ┃
-┠──────────────────────────────────────────────────────────────────────────┨
-┃                                                                          ┃
-┃            Copy the URL from the address bar of your browser,            ┃
-┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
-┃                         then tap the ENTER key.                          ┃
+┃      A DOWNLOADING ERROR OCCURRED. SEE THE MESSAGE BELOW FOR DETAILS     ┃
 ┃                                                                          ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```
+
+Display the error message, from the 'algo4download.py' script, under the splash.
+
+Then, under the error message, display the following question:
+
+```
+Would you like to try again? [Y]/N (Selecting 'N' will terminate the utility.)
+```
+
+If the user types 'N (case-insensitive) then ENTER', 'X (case-insensitive) then ENTER', or 'CTRL + C', run the 'splash90_end()' function and accept these 'user_input' options to terminate the utility.
+
+'[Y]es' is the default response. Any input (other than those already listed) results in the utility starting from the beginning.
+
+A successful outcome of running the 'algo4download.py' script is the URL webpage being saved to the 'download.html' file, the contents of the 'download.html' being successfully converted to the Markdown format, the conversion being saved to the 'download.md' file, and the 'web2md.py' receiving a SUCCESS response.
+
+Ensure the meta prompt specifies that this is the end of 'PHASE 02: DOWNLOAD'.
+
+---

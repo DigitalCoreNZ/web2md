@@ -104,7 +104,7 @@ def main():
     # Main loop for user input
     while True:
         try:
-            user_input = input("\nEnter URL (or 'X' to exit): ").strip()
+            user_input = input("\nEnter URL (or 'X then ENTER' to terminate this utility): ").strip()
             
             # Check if user wants to exit
             if user_input.upper() == 'X':
