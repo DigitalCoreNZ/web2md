@@ -38,7 +38,7 @@ def splash01_start():
 ┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
 ┃                         then tap the ENTER key.                          ┃
 ┃                                                                          ┃
-┖──────────────────────────────────────────────────────────────────────────┚""")
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛""")
 
 def splash90_end():
     """Display the exit splash screen."""
@@ -75,7 +75,7 @@ def splash90_end():
 ┃              The above notice shall be included in all copies,           ┃
 ┃                  or substantial portions, of the Software.               ┃
 ┃                                                                          ┃
-┖──────────────────────────────────────────────────────────────────────────┚""")
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛""")
 
 def cleanup_files():
     """Delete the content of download.html and download.md files."""
