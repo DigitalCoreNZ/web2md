@@ -1,0 +1,382 @@
+--- PHASE 01: UI ---
+
+/mpa-agent
+
+Create a meta prompt called 'phase01_ui.md' that creates a Python script called 'web2md.py'.
+
+The development of this Python script will happen in phases. This is 'PHASE 01: UI'.
+
+The following is the substance of the meta prompt activities.
+
+/bmad-dmm-dev
+
+When the script starts, the terminal is cleared of all text and the 'splash01_start' displays the following:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃    This utility will download a webpage from a given URL, convert the    ┃
+┃     HTML, and save the result to a Markdown file called 'output.md'.     ┃
+┃                                                                          ┃
+┃               You can provide sequential URLs and the results            ┃
+┃               will be added to the end of the output file.               ┃
+┃                                                                          ┃
+┃      To close this utility, you can type 'X then ENTER' or 'CTRL + C'.   ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃            Copy the URL from the address bar of your browser,            ┃
+┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
+┃                         then tap the ENTER key.                          ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+When the user types 'X (case-insensitive) then ENTER' or 'CTRL + C', the content of the 'download.html' and 'download.md' files are deleted, the screen is cleared of any text, the following 'splash90_end' is displayed, and the Python script is terminated:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃                                MIT License                               ┃
+┃                                                                          ┃
+┃──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃           © Copyright 2025 DigitalCoreNZ. All rights reserved.           ┃
+┃                                                                          ┃
+┃        Permission is hereby granted, free of charge, to any person       ┃
+┃      obtaining a copy of this software, and associated documentation     ┃
+┃    files (the "Software"), to deal in the Software without restriction,  ┃
+┃   including without limitation, the rights to use, copy, modify, merge,  ┃
+┃    publish, distribute, sublicense, and/or sell copies of the Software,  ┃
+┃      and to permit persons to whom the Software is furnished to do so,   ┃
+┃                   subject to the following conditions:                   ┃
+┃                                                                          ┃
+┃          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF           ┃
+┃       ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,       ┃
+┃       THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR        ┃
+┃       PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS,       ┃
+┃        OR COPYRIGHT HOLDERS, BE LIABLE FOR ANY CLAIM, DAMAGES OR         ┃
+┃        OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR        ┃
+┃        OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH, THE       ┃
+┃          SOFTWARE, OR THE USE, OR OTHER DEALINGS IN THE SOFTWARE.        ┃
+┃                                                                          ┃
+┃              The above notice shall be included in all copies,           ┃
+┃                  or substantial portions, of the Software.               ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+Set the semver number to 'v0.2.1'. Ensure this value is applied throughout the project.
+
+/mpa-agent
+
+Ensure the meta prompt specifies that this is the end of 'PHASE 01: UI'.
+
+|||~~~ RESULT ~~~|||
+
+I'll start by reading the custom instructions for the bmad-dmm-dev mode to understand the specific requirements for this development task.
+
+Now I need to check if there's a config file to load as per the activation instructions.
+
+Let me check if there's a project_context.md file in the project.
+
+Now I'll read the story file (phase01_ui.md) to understand the requirements.
+
+Now I'll create a todo list based on the requirements in the story file:
+
+Updated the to-do list:
+
+- Create web2md.py file in root directory
+- Implement splash01_start function to display initial splash screen
+- Implement splash90_end function to display exit splash screen
+- Add terminal clearing functionality
+- Handle user input for 'X (case-insensitive) then ENTER' to exit
+- Handle 'CTRL + C' signal for graceful exit
+- Add functionality to delete content of download.html and download.md files on exit
+- Test the complete functionality
+
+Now I'll start implementing the 'web2md.py' file following the red-green-refactor cycle. First, let me create the 'web2md.py' file.
+
+Now I'll test the 'web2md.py' script to ensure it works correctly.
+
+✅ Task Completed
+
+I have successfully created the 'web2md.py' script with all the required functionality from 'PHASE 01: UI':
+
+1. Created the web2md.py file in the root directory
+2. Implemented the splash01_start function that clears the terminal and displays the initial splash screen with the correct v0.2.1 version
+3. Implemented the splash90_end function that displays the MIT License splash screen on exit
+4. Added terminal clearing functionality using the clear_terminal function
+5. Implemented user input handling for 'X' (case-insensitive) to exit the program
+6. Added signal handling for CTRL+C (SIGINT) to allow graceful exit
+7. Added the cleanup_files function that deletes the content of download.html and download.md files on exit
+8. The script includes a main loop that waits for user input and handles all exit conditions properly
+
+The script follows the red-green-refactor cycle and meets all the requirements specified in the 'PHASE 01: UI' development story. The version number v0.2.1 is correctly reflected in all relevant outputs. The script handles both 'X' input and CTRL+C signal for termination, performs the required file cleanup, and terminates gracefully after displaying the exit splash screen.
+
+--- SIDE QUEST 1: TEMPLATE ---
+
+/code
+
+You are a senior website designer with over 25-years experience of working with
+HTML. You will download, and save, the HTML as 'download.html' and then analyse
+the layout, looking for the the various sections, e.g. menu, main-content, ads,
+footer, etc. You will then identify the main-content and save the result to a
+Markdown file called 'download.md'. The URL of the webpage is:
+https://tinker-docs.thinkingmachines.ai/losses
+
+|||~~~ RESULT ~~~|||
+
+I'll help you download the HTML from the specified URL, analyze its layout, and extract the main content into a Markdown file. Let me start by creating a todo list to track this multi-step process.
+
+✅ Updated the to-do list
+- Download HTML from https://tinker-docs.thinkingmachines.ai/losses and save as 'download.html'
+- Analyze the HTML layout to identify sections (menu, main-content, ads, footer, etc.)
+- Extract the main-content section from the HTML
+- Convert the main-content to Markdown format
+- Save the result as 'download.md'
+
+Now I'll start by downloading the HTML from the specified URL and saving it as 'download.html'. I'll use curl to download the webpage.
+
+```bash
+curl -s "https://tinker-docs.thinkingmachines.ai/losses" -o download.html
+```
+
+Let me check if the file was downloaded successfully and then read its contents to analyze the layout.
+
+✅ Download HTML from https://tinker-docs.thinkingmachines.ai/losses and save as 'download.html'
+
+Great! The 'download.html' file has been created. Now I'll read its contents to analyze the layout and identify the different sections.
+
+I've successfully downloaded the HTML from the specified URL and saved it as 'download.html'. Now I need to analyze the layout to identify the different sections. Let me update the todo list and continue with the analysis.
+
+✅ Analyze the HTML layout to identify sections (menu, main-content, ads, footer, etc.)
+
+Now I need to extract the main content from the HTML. Based on my analysis of the HTML structure, I can see that the main content is contained within the `<article>` element with the class `nextra-content`. Let me extract this section and convert it to Markdown.
+
+```python
+python3 -c "
+import re
+from bs4 import BeautifulSoup
+import html2text
+
+# Read the HTML file
+with open('download.html', 'r') as f:
+    html_content = f.read()
+
+# Parse the HTML
+soup = BeautifulSoup(html_content, 'html.parser')
+
+# Find the main content article
+main_content = soup.find('article', class_='nextra-content')
+
+if main_content:
+    # Convert to markdown
+    h = html2text.HTML2Text()
+    h.ignore_links = False
+    h.ignore_images = False
+    h.ignore_emphasis = False
+    markdown_content = h.handle(str(main_content))
+    
+    # Clean up the markdown
+    markdown_content = re.sub(r'\n{3,}', '\n\n', markdown_content)
+    
+    # Save to file
+    with open('download.md', 'w') as f:
+        f.write(markdown_content)
+    
+    print('Successfully extracted main content and converted to Markdown')
+else:
+    print('Could not find main content section')
+"
+
+# Successfully extracted main content and converted to Markdown
+```
+
+✅ Extract the main-content section from the HTML
+
+Great! I've successfully extracted the main content and converted it to Markdown. Let me verify the result by checking the created file and then update the todo list.
+
+✅ Save the result as 'download.md'
+
+Perfect! I've successfully extracted the main content from the HTML and converted it to Markdown format. The file has been saved as 'download.md'. Let me update the todo list to reflect the completion of all tasks.
+
+✅ Task Completed
+
+I have successfully completed all the requested tasks:
+
+1. Downloaded the HTML from https://tinker-docs.thinkingmachines.ai/losses and saved it as 'download.html'
+2. Analyzed the HTML layout and identified the main sections:
+   - Navigation menu (sidebar with links to different documentation pages)
+   - Main content area (article with class 'nextra-content')
+   - Table of contents (right sidebar)
+   - Header with search functionality
+   - Footer with theme controls
+
+3. Extracted the main content section from the HTML, which contained the article about loss functions in Tinker
+4. Converted the main content to Markdown format, preserving:
+   - Headings and subheadings
+   - Code blocks
+   - Mathematical formulas
+   - Lists and bullet points
+   - Links and references
+   - Text formatting
+
+5. Saved the result as 'download.md'
+
+The extracted Markdown file contains the complete documentation about loss functions in Tinker, including sections on basic loss functions (cross_entropy, importance_sampling, ppo, cispo, dro) and flexible loss functions (forward_backward_custom), along with code examples and mathematical formulations.
+
+--- SIDE QUEST: DOWNLOAD ALGORITHM ---
+
+/code
+
+Next, you will analyse the steps you took to achieve the creation of the download files. Once you understand how your results were achieved, create an algorithm using Python as your language. Save your algorithm as 'algo4download.py' that can be accessed, and used, by other Python scripts. Ensure the algorithm can be used on any URL, so display HTTP status codes with easy to understand descriptions when errors cause the algorithm to fail.
+
+|||~~~ RESULT ~~~|||
+
+I'll analyze the steps I took to create the download files and then create a reusable Python algorithm that can download and convert any webpage to Markdown.
+
+Now I'll create a comprehensive Python algorithm that can be used to download and convert any webpage to Markdown, based on the steps I followed earlier.
+
+Let me first analyze the steps I took to create the download files:
+
+1. Downloaded the HTML content from a URL using curl
+2. Analyzed the HTML structure to identify the main content section
+3. Extracted the main content from the HTML using BeautifulSoup
+4. Converted the HTML to Markdown using html2text
+5. Cleaned up the Markdown content
+6. Saved the result to a file
+
+Now I'll create a reusable Python algorithm that implements these steps with proper error handling.
+
+Now let me update the todo list to reflect completion of all tasks:
+
+✅ Analyze the steps taken to create the download files
+✅ Create a reusable Python algorithm for downloading and converting webpages to Markdown
+✅ Save the algorithm as 'algo4download.py' with error handling and HTTP status code descriptions
+
+Let me create a simple test script to demonstrate how to use the algorithm.
+
+Let me test the algorithm to make sure it works correctly:
+
+```bash
+Testing with Tinker documentation...
+Downloading webpage: https://tinker-docs.thinkingmachines.ai/losses
+Download successful: OK - Request successful
+Content length: 200479 characters
+HTML saved to: test_download.html
+Extracting main content...
+Converting to Markdown...
+Markdown saved to: test_download.md
+Success! Files saved to: test_download.html, test_download.md
+
+Testing with custom content selectors...
+Downloading webpage: https://tinker-docs.thinkingmachines.ai/losses
+Download successful: OK - Request successful
+Content length: 200479 characters
+HTML saved to: test_custom.html
+Extracting main content...
+Converting to Markdown...
+Markdown saved to: test_custom.md
+Success! Files saved to: test_custom.html, test_custom.md
+```
+
+Perfect! The algorithm is working correctly. Let me verify the generated files.
+
+✅ Task Completed
+
+I have successfully completed all the requested tasks:
+
+1. **Downloaded and analyzed the webpage**: I downloaded the HTML from https://tinker-docs.thinkingmachines.ai/losses and saved it as 'download.html'. I analyzed the layout and identified the main sections including navigation menu, main content area, table of contents, header, and footer.
+
+2. **Extracted and converted main content**: I extracted the main content from the HTML (the article section with class 'nextra-content') and converted it to Markdown format, preserving headings, code blocks, mathematical formulas, lists, links, and text formatting.
+
+3. **Saved the result**: The converted Markdown was saved as 'download.md'.
+
+4. **Created a reusable algorithm**: I analyzed the steps I took and created a comprehensive Python algorithm in 'algo4download.py' that can:
+   - Download any webpage with proper error handling
+   - Extract main content using customizable CSS selectors
+   - Convert HTML to Markdown with configurable options
+   - Save both HTML and Markdown files
+   - Display detailed HTTP status code descriptions for errors
+   - Handle various exceptions with clear error messages
+
+5. **Tested the algorithm**: I created a test script ('test_algo.py') that demonstrates how to use the algorithm and verified it works correctly by successfully downloading and converting the original webpage.
+
+The algorithm includes:
+- Comprehensive HTTP status code descriptions (100-511)
+- Custom exception classes for different error types
+- Flexible content extraction with fallback methods
+- Configurable HTML to Markdown conversion options
+- Command-line interface for easy use
+- Detailed documentation and examples
+
+The algorithm can be imported and used by other Python scripts or run directly from the command line, making it a reusable tool for converting any webpage to Markdown format.
+
+--- PHASE 02: DOWNLOAD ---
+
+/mpa-agent
+
+Building on the success of 'PHASE 01: UI', you will create a new meta prompt called 'phase02_download.md'.
+
+/bmad-dmm-dev
+
+Set the semver number from 'v0.2.1' to 'v0.2.2'. Ensure this value is applied throughout the project.
+
+At this stage, 'splash01_start' is currently displayed in the terminal.
+
+When the user provides a URL (whether it's valid or not) and taps the ENTER key, the 'web2md.py' script passes the URL value to the 'algo4download.py' script and waits for a response.
+
+The result of running the 'algo4download.py' script is the 'download.md' file.
+
+If the user provided an invalid URL, the terminal is cleared of any text and the 'screen02_error' is displayed:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃  The provided URL is broken. Follow the included instructions below.     ┃
+┃                                                                          ┃
+┃  To close this utility, you can type 'X then ENTER' or 'CTRL + C'.       ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃            Copy the URL from the address bar of your browser,            ┃
+┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
+┃                         then tap the ENTER key.                          ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+If the user provided a valid URL and tapped the ENTER key, the screen is cleared of any text, the processing data is streamed to the terminal until it ends, the screen is AGAIN cleared of any text, and the following 'screen03_result' is displayed:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.1        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃                                  SUCCESS                                 ┃
+┃                                                                          ┃
+┃     The webpage has been saved to a markdown file called 'output.md'.    ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃            Copy the URL from the address bar of your browser,            ┃
+┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
+┃                         then tap the ENTER key.                          ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
