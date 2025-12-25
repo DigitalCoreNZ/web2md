@@ -24,23 +24,23 @@ def splash01_start():
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
-┃  This utility will download a webpage from a given URL, convert the      ┃
-┃  HTML, and save the result to a Markdown file called 'output.md'.        ┃
+┃    This utility will download a webpage from a given URL, convert the    ┃
+┃     HTML, and save the result to a Markdown file called 'output.md'.     ┃
 ┃                                                                          ┃
-┃  You can provide sequential URLs and the results will be added to        ┃
-┃  the end of the output file.                                             ┃
+┃               You can provide sequential URLs and the results            ┃
+┃               will be added to the end of the output file.               ┃
 ┃                                                                          ┃
-┃  To close this utility, you can type 'X then ENTER' or 'CTRL + C'.       ┃
+┃      To close this utility, you can type 'X then ENTER' or 'CTRL + C'.   ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
-┃  Copy the URL from the address bar of your browser,                      ┃
-┃  paste (CTRL + SHIFT + V) the URL to this terminal,                      ┃
-┃  then tap the ENTER key.                                                 ┃
+┃            Copy the URL from the address bar of your browser,            ┃
+┃            paste (CTRL + SHIFT + V) the URL to this terminal,            ┃
+┃                         then tap the ENTER key.                          ┃
 ┃                                                                          ┃
 ┖──────────────────────────────────────────────────────────────────────────┚""")
 
-def splash99_end():
+def splash90_end():
     """Display the exit splash screen."""
     clear_terminal()
     print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -78,11 +78,11 @@ def splash99_end():
 ┖──────────────────────────────────────────────────────────────────────────┚""")
 
 def cleanup_files():
-    """Delete the content of template.html and template.md files."""
+    """Delete the content of download.html and download.md files."""
     try:
-        with open('template.html', 'w') as f:
+        with open('download.html', 'w') as f:
             f.write('')
-        with open('template.md', 'w') as f:
+        with open('download.md', 'w') as f:
             f.write('')
     except FileNotFoundError:
         pass  # Files don't exist, which is fine
@@ -90,7 +90,7 @@ def cleanup_files():
 def signal_handler(sig, frame):
     """Handle CTRL+C signal."""
     cleanup_files()
-    splash99_end()
+    splash90_end()
     sys.exit(0)
 
 def main():
@@ -109,7 +109,7 @@ def main():
             # Check if user wants to exit
             if user_input.upper() == 'X':
                 cleanup_files()
-                splash99_end()
+                splash90_end()
                 break
                 
             # TODO: In future phases, add URL processing here
@@ -119,7 +119,7 @@ def main():
                 
         except KeyboardInterrupt:
             cleanup_files()
-            splash99_end()
+            splash90_end()
             break
         except Exception as e:
             print(f"Error: {e}")
