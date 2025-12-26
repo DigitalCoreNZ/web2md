@@ -453,4 +453,100 @@ The implementation includes:
 
 The web2md.py utility now has full download functionality with proper error handling and user feedback as specified in Phase 02. The version number has been updated to v0.2.2 throughout the project.
 
----
+--- PHASE 03: PROCESS ---
+
+/mpa-agent
+
+Building on the success of 'PHASE 02: DOWNLOAD', you will create a new meta prompt called 'phase03_process.md'.
+
+/bmad-dmm-dev
+
+Set the semver number from 'v0.2.2' to 'v0.2.3'. Ensure this value is applied throughout the project.
+
+In review:
+- The 'web2md.py' script accepts a URL from the user,
+- The 'web2md.py' script passes the URL to the 'algo4download.py' script,
+- The 'algo4download.py' script tests for errors,
+- Errors detected by the 'algo4download.py' script cause the download_webpage() exception to run and the error message is passed back to the 'web2md.py' script,
+- No errors means the 'algo4download.py' script downloads the content from the URL and saves that content to the 'download.html' file,
+- The 'algo4download.py' script converts the content of 'download.html' file to the Markdown format,
+- The 'algo4download.py' script saves the converted, Markdown content to the 'download.md' file,
+- The 'algo4download.py' script sends a success message to the 'web2md.py' script, and
+- The 'web2md.py' script displays the following in the terminal:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃             Downloading the webpage from the provided URL...             ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+✓ Download completed successfully!
+The webpage has been converted to Markdown and saved to 'download.md'
+
+Would you like to download another URL? [Y]/N: 
+```
+
+You will modify the code so that when the 'web2md.py' script receives the success signal from the 'algo4download.py' script, it runs the clear_terminal() function and the following 'splash04_process' is displayed:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃                      Processing the output file...                       ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+The 'web2md.py' script checks if the 'output01.md' file name exists. If the file name exists, it checks if the 'output02.md' file name exists. This loop continues with incrementing numbers until an appropriate file name is found, and then the 'web2md.py' script uses that file name when creating an empty Markdown file.
+
+Then, the file name is passed to the 'algo4process.py' script and the 'web2md.py' script waits for a signal from the other script.
+
+The 'algo4process.py' script contains post processing features like the mathml2latex() function and the headingconform() function. The 'algo4process.py' script can easily expand with the inclusion of other Markdown functions, or even functions for other file types, like the AsciiDoc format.
+
+When the 'algo4process.py' script receives the file name from the 'web2md.py' script, the first operation is to run the mathml2latex() function on the content of the 'download.md' file. The mathml2latex() function looks for MathML entries and converts those entries to LaTeX. These conversions happen in-place, e.g. If MathML is part of a paragraph, then LaTeX replaces MathML at the same location.
+
+There are multiple reasons for post processing the content of the 'download.md' file:
+- The content of the 'download.md' file is deleted when the utility is terminated,
+- The content of the 'download.md' file is deleted before another URL is processed,
+- The content of the 'download.md' file is considered temporary, disposable, and ethereal,
+- The content of the 'download.md' file remains lightweight while the output file grows as more content from additional URLs is added, and
+- The content of the 'download.md' file can be post processed before the results are appended to the output file.
+
+Next, the 'algo4process.py' script appends the post processed content from the 'download.md' file to the output file.
+
+The headingconform() function will be added to the 'algo4process.py' script at a later time, showcasing the expandability, extensibility, and flexibility of this script.
+
+When all of the post processing is complete, the 'algo4process.py' script sends a SUCCESS signal to the 'web2md.py' script.
+
+Then the 'web2md.py' script asks the user if it wants to append the content from another URL to the output file. This was covered in an earlier PHASE.
+
+You will update the utility termination process. If the input is 'X (case insensitive) then ENTER' or 'CTRL + C', then the following 'splash05_save' is displayed:
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                          ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
+┃                                                                          ┃
+┠──────────────────────────────────────────────────────────────────────────┨
+┃                                                                          ┃
+┃        If you want to rename the output file, add the name below.        ┃
+┃         Otherwise, tap the ENTER key to terminate this utility.          ┃
+┃                                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+If the user provides a new file name, apply that name to the output file. Add, or replace, the 'md' file extension if the user made an error.
+
+Once the new file name is applied, continue with the terminate process.
+
+/mpa-agent
+
+Clearly indicate that this is the end of 'PHASE 03: PROCESS'.
