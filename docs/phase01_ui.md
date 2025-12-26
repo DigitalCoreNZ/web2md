@@ -2,6 +2,7 @@
 name: "Phase 01: UI"
 description: "Develop the initial version of web2md.py, focusing on basic functionality and user interaction."
 mode: "bmad-dmm-dev"
+version: "v0.2.3"
 ---
 
 # Phase 01: UI
