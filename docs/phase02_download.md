@@ -2,6 +2,7 @@
 name: "Phase 02: Download"
 description: "Implement the download functionality for web2md.py, integrating with algo4download.py to fetch and convert web pages."
 mode: "bmad-dmm-dev"
+version: "v0.2.3"
 ---
 
 # Phase 02: Download Implementation
