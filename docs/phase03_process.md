@@ -82,7 +82,7 @@ The post-processing approach provides several benefits:
 ### 5. Update Termination Process
 
 #### 5.1. Implement splash05_save
-When user input is 'X' (case-insensitive) + ENTER or CTRL+C:
+When user input is 'X (case-insensitive) + ENTER' or 'CTRL + C':
 1. Display the splash05_save screen:
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
