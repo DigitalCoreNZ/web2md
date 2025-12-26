@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Website to Markdown Download Utility (web2md.py) v0.2.3
+The Website to Markdown Download Utility (web2md.py) v0.2.2
 
 This utility downloads webpages and converts them to Markdown format.
 """
@@ -8,10 +8,9 @@ This utility downloads webpages and converts them to Markdown format.
 import os
 import sys
 import signal
-import subprocess
 from algo4download import webpage_to_markdown, NetworkError, ContentExtractionError, FileOperationError
 
-VERSION = "v0.2.3"
+VERSION = "v0.2.2"
 
 def clear_terminal():
     """Clear the terminal screen."""
@@ -22,14 +21,14 @@ def splash01_start():
     clear_terminal()
     print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
 ┃    This utility will download a webpage from a given URL, convert the    ┃
 ┃     HTML, and save the result to a Markdown file called 'output.md'.     ┃
 ┃                                                                          ┃
-┃               You can provide sequential URLs and results            ┃
+┃               You can provide sequential URLs and the results            ┃
 ┃               will be added to the end of the output file.               ┃
 ┃                                                                          ┃
 ┃      To close this utility, you can type 'X then ENTER' or 'CTRL + C'.   ┃
@@ -47,7 +46,7 @@ def splash02_download():
     clear_terminal()
     print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
@@ -60,7 +59,7 @@ def splash03_download_error(error_message):
     clear_terminal()
     print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
@@ -70,39 +69,12 @@ def splash03_download_error(error_message):
     print(f"\n{error_message}\n")
     print("Would you like to try again? [Y]/N (Selecting 'N' will terminate the utility.)")
 
-def splash04_process():
-    """Display the processing splash screen."""
-    clear_terminal()
-    print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
-┃                                                                          ┃
-┠──────────────────────────────────────────────────────────────────────────┨
-┃                                                                          ┃
-┃                      Processing the output file...                       ┃
-┃                                                                          ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛""")
-
-def splash05_save():
-    """Display the save/rename splash screen."""
-    clear_terminal()
-    print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
-┃                                                                          ┃
-┠──────────────────────────────────────────────────────────────────────────┨
-┃                                                                          ┃
-┃        If you want to rename the output file, add the name below.        ┃
-┃         Otherwise, tap the ENTER key to terminate this utility.          ┃
-┃                                                                          ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛""")
-
 def splash90_end():
     """Display the exit splash screen."""
     clear_terminal()
     print("""┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                          ┃
-┃       The Website to Markdown Download Utility (web2md.py) v0.2.3        ┃
+┃       The Website to Markdown Download Utility (web2md.py) v0.2.2        ┃
 ┃                                                                          ┃
 ┠──────────────────────────────────────────────────────────────────────────┨
 ┃                                                                          ┃
@@ -150,60 +122,6 @@ def signal_handler(sig, frame):
     splash90_end()
     sys.exit(0)
 
-def find_next_output_filename():
-    """Find the next available output filename with incremental numbering."""
-    counter = 1
-    while True:
-        filename = f"output{counter:02d}.md"
-        if not os.path.exists(filename):
-            return filename
-        counter += 1
-
-def process_content():
-    """Process the downloaded content using algo4process.py."""
-    try:
-        # Find the next available output filename
-        output_filename = find_next_output_filename()
-        
-        # Create the empty output file
-        with open(output_filename, 'w') as f:
-            f.write("")
-        
-        # Call algo4process.py to process the content
-        result = subprocess.run(
-            [sys.executable, "algo4process.py", output_filename],
-            capture_output=True,
-            text=True
-        )
-        
-        if result.returncode == 0 and result.stdout.strip() == "SUCCESS":
-            return True, output_filename
-        else:
-            return False, result.stderr.strip() if result.stderr else "Processing failed"
-            
-    except Exception as e:
-        return False, f"Error during processing: {str(e)}"
-
-def rename_output_file(current_filename):
-    """Allow user to rename the output file."""
-    try:
-        user_input = input("\nEnter new filename (or press ENTER to keep current name): ").strip()
-        
-        if not user_input:
-            return current_filename  # Keep the original name
-        
-        # Ensure the filename has .md extension
-        if not user_input.lower().endswith('.md'):
-            user_input += '.md'
-        
-        # Rename the file
-        os.rename(current_filename, user_input)
-        return user_input
-        
-    except Exception as e:
-        print(f"Error renaming file: {e}")
-        return current_filename
-
 def download_url(url):
     """Download a URL and convert it to markdown."""
     try:
@@ -249,64 +167,27 @@ def handle_error_response(error_message):
             return False  # Exit the program
 
 def handle_success_response():
-    """Handle successful download and processing response."""
-    # Display processing splash
-    splash04_process()
+    """Handle successful download response."""
+    print("\n✓ Download completed successfully!")
+    print("The webpage has been converted to Markdown and saved to 'download.md'")
     
-    # Process the content
-    success, message = process_content()
-    
-    if success:
-        print(f"\n✓ Content processed successfully!")
-        print(f"Output saved to: {message}")
-        
-        # Clean up the temporary download.md file
-        with open('download.md', 'w') as f:
-            f.write("")
-        
-        while True:
-            try:
-                user_input = input("\nWould you like to download another URL? [Y]/N: ").strip().upper()
-                
-                # Check if user wants to exit
-                if user_input == 'N' or user_input == 'X':
-                    # Handle file renaming before exit
-                    splash05_save()
-                    final_filename = rename_output_file(message)
-                    cleanup_files()
-                    splash90_end()
-                    return False  # Exit the program
-                
-                # Any other input is considered "Yes" (download another)
-                return True  # Continue with the program
-                
-            except KeyboardInterrupt:
-                splash05_save()
-                final_filename = rename_output_file(message)
+    while True:
+        try:
+            user_input = input("\nWould you like to download another URL? [Y]/N: ").strip().upper()
+            
+            # Check if user wants to exit
+            if user_input == 'N' or user_input == 'X':
                 cleanup_files()
                 splash90_end()
                 return False  # Exit the program
-    else:
-        # Handle processing error
-        print(f"\n✗ Processing failed: {message}")
-        
-        while True:
-            try:
-                user_input = input("\nWould you like to try again? [Y]/N: ").strip().upper()
-                
-                # Check if user wants to exit
-                if user_input == 'N' or user_input == 'X':
-                    cleanup_files()
-                    splash90_end()
-                    return False  # Exit the program
-                
-                # Any other input is considered "Yes" (try again)
-                return True  # Continue with the program
-                
-            except KeyboardInterrupt:
-                cleanup_files()
-                splash90_end()
-                return False  # Exit the program
+            
+            # Any other input is considered "Yes" (download another)
+            return True  # Continue with the program
+            
+        except KeyboardInterrupt:
+            cleanup_files()
+            splash90_end()
+            return False  # Exit the program
 
 def main():
     """Main function to run the web2md utility."""
@@ -323,7 +204,6 @@ def main():
             
             # Check if user wants to exit
             if user_input.upper() == 'X':
-                splash05_save()
                 cleanup_files()
                 splash90_end()
                 break
@@ -333,7 +213,7 @@ def main():
                 success, message = download_url(user_input)
                 
                 if success:
-                    # Handle successful download and processing
+                    # Handle successful download
                     if not handle_success_response():
                         break
                     # Restart from the beginning
@@ -346,7 +226,6 @@ def main():
                     splash01_start()
                 
         except KeyboardInterrupt:
-            splash05_save()
             cleanup_files()
             splash90_end()
             break
