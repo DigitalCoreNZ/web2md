@@ -550,3 +550,22 @@ Once the new file name is applied, continue with the terminate process.
 /mpa-agent
 
 Clearly indicate that this is the end of 'PHASE 03: PROCESS'.
+
+--- PHASE 04: APPEND ---
+
+/mpa-agent
+
+The development roadmap is as follows:
+
+- PHASE 04: APPEND (this PHASE) is where you look at appending processed URLs to the same output file,
+- PHASE 05: AD SUPPORT is where you look at including support for the AsciiDoc format,
+- PHASE 06: PROJECT NAME where you change the name from 'web2md' to 'web2doc', and
+- PHASE 07: OPTIMISE where you integrate, and refactor, the Python scripts.
+
+/bmad-dmm-dev
+
+[pending]
+
+/mpa-agent
+
+Clearly indicate that this is the end of 'PHASE 04: APPEND'.
